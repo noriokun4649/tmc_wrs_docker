@@ -69,3 +69,15 @@ services:
       - simulator
     depends_on:
       - xserver
+  scratch:
+    image: ghcr.io/noriokun4649/scratch2ros-docker:v1.0.0
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "3003:8601"
+    environment:
+      - DISPLAY=:0
+    volumes_from:
+      - simulator
+    depends_on:
+      - simulator
